@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Электроника</title>
+    <link rel="stylesheet" href="./static/styles.css"> <!-- Подключаем общий стиль -->
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="{{ url_for('main.home') }}">Маркетплейс</a>
+    </nav>
+    <nav>
+        <a href="{{ url_for('main.clothing') }}">Одежда</a>
+        <a href="{{ url_for('main.shoes') }}">Обувь</a>
+        <a href="{{ url_for('main.electronics') }}">Электроника</a>
+        <a href="{{ url_for('main.household') }}">Бытовые предметы</a>
+        <a href="{{ url_for('main.food') }}">Еда</a>
+    </nav>
+    <nav>
+    <div class="login">
+        <a href="{{ url_for('main.login') }}">Логин</a>
+    </div>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="product">
+        <img src="https://via.placeholder.com/220" alt="Электроника 1">
+        <h3>Электроника 1</h3>
+        <p>Цена: 5000 руб.</p>
+        <button class="add-to-cart">Добавить в корзину</button>
+    </div>
+    <div class="product">
+        <img src="https://via.placeholder.com/220" alt="Электроника 2">
+        <h3>Электроника 2</h3>
+        <p>Цена: 7000 руб.</p>
+        <button class="add-to-cart">Добавить в корзину</button>
+    </div>
+    <div class="product">
+        <img src="https://via.placeholder.com/220" alt="Электроника 3">
+        <h3>Электроника 3</h3>
+        <p>Цена: 9000 руб.</p>
+        <button class="add-to-cart">Добавить в корзину</button>
+    </div>
+    <div class="product">
+        <img src="https://via.placeholder.com/220" alt="Электроника 4">
+        <h3>Электроника 4</h3>
+        <p>Цена: 12000 руб.</p>
+        <button class="add-to-cart">Добавить в корзину</button>
+    </div>
+    <!-- Добавьте больше товаров по аналогии -->
+</div>
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Маркетплейс</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .product {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+        .product:hover {
+            transform: scale(1.05);
+        }
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .product h3 {
+            font-size: 1.1em;
+            margin: 10px 0;
+            color: #333;
+        }
+        .product p {
+            font-size: 1em;
+            color: #e74c3c; /* Цвет для цены */
+            font-weight: bold;
+        }
+        .add-to-cart {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .add-to-cart:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="{{ url_for('main.home') }}">Маркетплейс</a>
+    </nav>
+
+    <nav>
+        <a href="{{ url_for('main.clothing') }}">Одежда</a>
+        <a href="{{ url_for('main.shoes') }}">Обувь</a>
+        <a href="{{ url_for('main.electronics') }}">Электроника</a>
+        <a href="{{ url_for('main.household') }}">Бытовые предметы</a>
+        <a href="{{ url_for('main.food') }}">Еда</a>
+    </nav>
+    <nav>
+    <div class="login">
+        <a href="{{ url_for('main.login') }}">Логин</a>
+    </div>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="product">
+        <img src="https://via.placeholder.com/220" alt="Товар 1">
+        <h3>Товар 1</h3>
+        <p>Цена: 1000 руб.</p>
+        <button class="add-to-cart">Добавить в корзину</button>
+    </div>
+    <div class="product">
+        <img src="https://via.placeholder.com/220" alt="Товар 2">
+        <h3>Товар 2</h3>
+        <p>Цена: 1500 руб.</p>
+        <button class="add-to-cart">Добавить в корзину</button>
+    </div>
+    <div class="product">
+        <img src="https://via.placeholder.com/220" alt="Товар 3">
+        <h3>Товар 3</h3>
+        <p>Цена: 2000 руб.</p>
+        <button class="add-to-cart">Добавить в корзину</button>
+    </div>
+    <div class="product">
+        <img src="https://via.placeholder.com/220" alt="Товар 4">
+        <h3>Товар 4</h3>
+        <p>Цена: 2500 руб.</p>
+        <button class="add-to-cart">Добавить в корзину</button>
+    </div>
+    <div class="product">
+        <img src="https://via.placeholder.com/220" alt="Товар 5">
+        <h3>Товар 5</h3>
+        <p>Цена: 3000 руб.</p>
+        <button class="add-to-cart">Добавить в корзину</button>
+    </div>
+    
+</div>

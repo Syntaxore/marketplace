@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Логин</title>
+    <link rel="stylesheet" href="/static/styles.css"> <!-- Подключаем общий стиль -->
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="{{ url_for('main.home') }}">Маркетплейс</a>
+    </nav>
+    <nav>
+        <a href="{{ url_for('main.clothing') }}">Одежда</a>
+        <a href="{{ url_for('main.shoes') }}">Обувь</a>
+        <a href="{{ url_for('main.electronics') }}">Электроника</a>
+        <a href="{{ url_for('main.household') }}">Бытовые предметы</a>
+        <a href="{{ url_for('main.food') }}">Еда</a>
+    </nav>
+    <nav>
+        <div class="login">
+            <a href="{{ url_for('main.login') }}">Логин</a>
+        </div>
+    </nav>
+</header>
+
+<div class="container">
+    <h2>Вход в систему</h2>
+    <form action="{{ url_for('main.login') }}" method="POST">
+        <div>
+            <label for="username">Логин:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div>
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit">Войти</button>
+    </form>
+    <p>Нет аккаунта? <a href="{{ url_for('main.register') }}">Зарегистрируйтесь</a></p>
+</div>
+
+</body>
+</html>

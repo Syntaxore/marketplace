@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="static/styles.css"> <!-- Подключаем общий стиль -->
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="{{ url_for('main.home') }}">Маркетплейс</a>
+    </nav>
+    <nav>
+        <a href="{{ url_for('main.clothing') }}">Одежда</a>
+        <a href="{{ url_for('main.shoes') }}">Обувь</a>
+        <a href="{{ url_for('main.electronics') }}">Электроника</a>
+        <a href="{{ url_for('main.household') }}">Бытовые предметы</a>
+        <a href="{{ url_for('main.food') }}">Еда</a>
+    </nav>
+    <div>Регистрация</div>
+</header>
+
+<div class="container">
+    <h2>Создать аккаунт</h2>
+    <form action="{{ url_for('main.register') }}" method="POST">
+        <div>
+            <label for="username">Логин:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div>
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div>
+            <label for="confirm_password">Подтвердите пароль:</label>
+            <input type="password" id="confirm_password" name="confirm_password" required>
+        </div>
+        <button type="submit">Зарегистрироваться</button>
+    </form>
+    <p>Уже есть аккаунт? <a href="{{ url_for('main.login') }}">Войдите</a></p>
+</div>
+
+</body>
+</html>
