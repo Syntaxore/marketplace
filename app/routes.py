@@ -1,6 +1,14 @@
+
+
 from flask import render_template, Blueprint, request, redirect, url_for, flash
+from . import db
+from .models.database import User
+from .forms import RegistrationForm
+
 
 main = Blueprint("main", __name__)
+
+
 
 @main.route("/" , methods=["GET", "POST"])
 def home():
@@ -32,6 +40,17 @@ def household():
 def login():
     return render_template("login.html")
 
-@main.route("/register")
+@main.route("/register", methods=["POST", "GET"])
 def register():
-    return render_template("register.html")
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        if form.password.data != form.confirm_password.data:
+            flash("Пароли не совпадают!", "danger")
+            return redirect(url_for("main.register"))
+        user = User(username=form.username.data, password=form.password.data)
+        db.session.add(user)
+        db.session.commit()
+        return redirect(url_for("main.home"))
+
+
+    return render_template("register.html", form=form)

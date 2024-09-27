@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Регистрация</title>
-    <link rel="stylesheet" href="static/styles.css"> <!-- Подключаем общий стиль -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> <!-- Подключаем общий стиль -->
 </head>
 <body>
 
@@ -25,17 +25,18 @@
 <div class="container">
     <h2>Создать аккаунт</h2>
     <form action="{{ url_for('main.register') }}" method="POST">
+        {{ form.hidden_tag() }}  <!-- Для CSRF защиты -->
         <div>
             <label for="username">Логин:</label>
-            <input type="text" id="username" name="username" required>
+            {{ form.username(class="form-control", id="username") }}  <!-- Используем Flask-WTF для рендеринга -->
         </div>
         <div>
             <label for="password">Пароль:</label>
-            <input type="password" id="password" name="password" required>
+            {{ form.password(class="form-control", id="password") }}  <!-- Используем Flask-WTF для рендеринга -->
         </div>
         <div>
             <label for="confirm_password">Подтвердите пароль:</label>
-            <input type="password" id="confirm_password" name="confirm_password" required>
+            {{ form.confirm_password(class="form-control", id="confirm_password") }}  <!-- Используем Flask-WTF для рендеринга -->
         </div>
         <button type="submit">Зарегистрироваться</button>
     </form>
