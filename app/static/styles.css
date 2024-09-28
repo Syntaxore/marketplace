@@ -92,3 +92,7 @@ p a {
 p a:hover {
     text-decoration: underline; /* Подчеркивание при наведении */
 }
+
+.text-danger {
+    color: red;
+}

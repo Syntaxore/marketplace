@@ -28,14 +28,30 @@
 
 <div class="container">
     <h2>Вход в систему</h2>
+    {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+            <ul class="flashes">
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
     <form action="{{ url_for('main.login') }}" method="POST">
+        {{ form.hidden_tag() }}  <!-- Для CSRF защиты -->
         <div>
             <label for="username">Логин:</label>
-            <input type="text" id="username" name="username" required>
+            {{ form.username(class="form-control") }}
+            {% for error in form.username.errors %}
+                <span class="text-danger">{{ error }}</span>
+            {% endfor %}
         </div>
         <div>
             <label for="password">Пароль:</label>
-            <input type="password" id="password" name="password" required>
+            {{ form.password(class="form-control") }}
+            {% for error in form.password.errors %}
+                <span class="text-danger">{{ error }}</span>
+            {% endfor %}
         </div>
         <button type="submit">Войти</button>
     </form>
